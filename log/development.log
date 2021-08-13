@@ -1,0 +1,178 @@
+DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
+now accept two parameters, the view object and the source for the view object.
+Change:
+  >> Coffee::Rails::TemplateHandler.call(template)
+To:
+  >> Coffee::Rails::TemplateHandler.call(template, source)
+ (called from <top (required)> at /Users/apple/projects/rspec-practice/config/environment.rb:5)
+DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
+now accept two parameters, the view object and the source for the view object.
+Change:
+  >> Coffee::Rails::TemplateHandler.call(template)
+To:
+  >> Coffee::Rails::TemplateHandler.call(template, source)
+ (called from <top (required)> at /Users/apple/projects/rspec-practice/config/environment.rb:5)
+DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
+now accept two parameters, the view object and the source for the view object.
+Change:
+  >> Coffee::Rails::TemplateHandler.call(template)
+To:
+  >> Coffee::Rails::TemplateHandler.call(template, source)
+ (called from <top (required)> at /Users/apple/projects/rspec-practice/config/environment.rb:5)
+Started GET "/" for ::1 at 2021-08-13 21:34:13 +0900
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.4) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.4) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: ActionView::Base instances should be constructed with a lookup context, assignments, and a controller. (called from new at /Users/apple/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/web-console-3.7.0/lib/web_console/template.rb:21)
+Started POST "/rails/actions" for ::1 at 2021-08-13 21:34:23 +0900
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProjects (20170429005652)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "due_on" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170429005652"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20170429031237)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170429031237"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameFieldsToUser (20170429183740)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170429183740"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserToProject (20170429184509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "projects" ADD "user_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_projects_on_user_id" ON "projects" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aprojects" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "due_on" date DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aprojects_on_user_id" ON "aprojects" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aprojects" ("id","name","description","due_on","created_at","updated_at","user_id")
+                     SELECT "id","name","description","due_on","created_at","updated_at","user_id" FROM "projects"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "projects"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "due_on" date DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_b872a6760a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_projects_on_user_id" ON "projects" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "projects" ("id","name","description","due_on","created_at","updated_at","user_id")
+                     SELECT "id","name","description","due_on","created_at","updated_at","user_id" FROM "aprojects"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aprojects"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170429184509"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateNotes (20170429213746)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "message" text, "project_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_99e097b079"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+, CONSTRAINT "fk_rails_7f2323ad43"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notes_on_project_id" ON "notes" ("project_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_notes_on_user_id" ON "notes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170429213746"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20170430190554)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "project_id" integer, "completed" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_02e851e3b7"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_tasks_on_project_id" ON "tasks" ("project_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170430190554"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuthenticationTokenToUser (20170505204351)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170505204351"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAttachmentAttachmentToNotes (20170519014052)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "notes" ADD "attachment_file_name" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "notes" ADD "attachment_content_type" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "notes" ADD "attachment_file_size" bigint[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "notes" ADD "attachment_updated_at" datetime[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170519014052"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddLocationToUsers (20170829013421)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "location" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170829013421"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddForeignKeyConstraintToActiveStorageAttachmentsForBlobId (20210813122942)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210813122942"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-13 12:34:23.843002"], ["updated_at", "2021-08-13 12:34:23.843002"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2021-08-13 21:34:23 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/apple/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/apple/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.4ms | Allocations: 195)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 996)
+
+
+Started GET "/" for ::1 at 2021-08-13 21:34:36 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/apple/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/apple/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.1ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 1027)
+
+
