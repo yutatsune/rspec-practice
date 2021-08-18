@@ -953,3 +953,1058 @@ Content-Transfer-Encoding: 7bit
 [ActiveJob] [ActionMailer::DeliveryJob] [d17725da-ed46-4acc-b6d5-6070947a9bb5] Skipped delivery of mail  as `perform_deliveries` is false
 [ActiveJob] [ActionMailer::DeliveryJob] [d17725da-ed46-4acc-b6d5-6070947a9bb5] 
 [ActiveJob] [ActionMailer::DeliveryJob] [d17725da-ed46-4acc-b6d5-6070947a9bb5] Performed ActionMailer::DeliveryJob (Job ID: d17725da-ed46-4acc-b6d5-6070947a9bb5) from Async(mailers) in 263.4ms
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "xgX9ETRrAXNxMsEiz_3z"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$zT9we7cv9c9XayBVzEI2LOMqVQFrxp1EWmDjLwV5M9Tcdnk/GmT/m"], ["created_at", "2021-08-15 06:37:10.392041"], ["updated_at", "2021-08-15 06:37:10.392041"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "xgX9ETRrAXNxMsEiz_3z"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: db391bdf-5b86-4141-89f1-d0ebf9f0e5fc) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44455cfd8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.516283"], ["updated_at", "2021-08-15 06:37:10.516283"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "kiy6fzExc21dbWq7s2Ct"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$0l37H8gQ1VBIfYNsp5Wsfuej.8Ddn/ZgAw7GKaneVu0l5D8rBg1VG"], ["created_at", "2021-08-15 06:37:10.539578"], ["updated_at", "2021-08-15 06:37:10.539578"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "kiy6fzExc21dbWq7s2Ct"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1ff53025-7f49-45f1-9a99-98a7a0240612) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4394cbcc8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.544259"], ["updated_at", "2021-08-15 06:37:10.544259"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc] Performing ActionMailer::DeliveryJob (Job ID: db391bdf-5b86-4141-89f1-d0ebf9f0e5fc) from Async(mailers) enqueued at 2021-08-15T06:37:10Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4395900f0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "1_Cu-wCeU7ygYXysuNjs"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$6ibvcN9gRVipNc3h6wF6jec508xgoNcdNHoz5CkRpnW3H.zP6ZFRa"], ["created_at", "2021-08-15 06:37:10.581379"], ["updated_at", "2021-08-15 06:37:10.581379"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "1_Cu-wCeU7ygYXysuNjs"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 5705c999-84a4-4886-92d4-88b9b8cced71) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4420e7590 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.586569"], ["updated_at", "2021-08-15 06:37:10.586569"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (1.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.598140"], ["updated_at", "2021-08-15 06:37:10.598140"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.602056"], ["updated_at", "2021-08-15 06:37:10.602056"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.604063"], ["updated_at", "2021-08-15 06:37:10.604063"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (LOWER(message) LIKE '%first%')[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "C5SXPUxv7BAusRgWjQww"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$SvDqgHmuiFHB97pf5TqvxOCVb0zJs7.Wol65p.so9vzQax.Di8Z3C"], ["created_at", "2021-08-15 06:37:10.612765"], ["updated_at", "2021-08-15 06:37:10.612765"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "C5SXPUxv7BAusRgWjQww"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 4277fafc-c515-4de1-9da4-f83c3c98e263) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44239b700 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.618352"], ["updated_at", "2021-08-15 06:37:10.618352"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.620404"], ["updated_at", "2021-08-15 06:37:10.620404"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.622207"], ["updated_at", "2021-08-15 06:37:10.622207"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:37:10.623660"], ["updated_at", "2021-08-15 06:37:10.623660"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612] Performing ActionMailer::DeliveryJob (Job ID: 1ff53025-7f49-45f1-9a99-98a7a0240612) from Async(mailers) enqueued at 2021-08-15T06:37:10Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442362dd8 @uri=#<URI::GID gid://projects/User/1>>
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (LOWER(message) LIKE '%message%') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "ZR4EHPqH17d3D271jB79"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$bm8t.UdsmJxaaFjq4Kk1yu5BZ0ytS1mmy1tVXD2xdb.1xXh5vKtD2"], ["created_at", "2021-08-15 06:37:10.641937"], ["updated_at", "2021-08-15 06:37:10.641937"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "ZR4EHPqH17d3D271jB79"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: c5701456-cfd0-4375-940d-d7ad29646750) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442212ca8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.646017"], ["updated_at", "2021-08-15 06:37:10.646017"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 28.0ms | Allocations: 6082)
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "BuZQzhMdy2Kt3bWtw6ec"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$.x3hM3FJp6Mqb7KGJvKhiuuVSKtnZHwsYGHuBF0Z5TtX1te7jYPnq"], ["created_at", "2021-08-15 06:37:10.656842"], ["updated_at", "2021-08-15 06:37:10.656842"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "BuZQzhMdy2Kt3bWtw6ec"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: fc581016-02b0-47ef-8539-a3ac4887ccf4) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44255a6e0 @uri=#<URI::GID gid://projects/User/1>>
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 25.6ms | Allocations: 5715)
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:37:10.664884"], ["updated_at", "2021-08-15 06:37:10.664884"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "QFLxrLHkaZGu2DcfpbR6"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janetester@example.com"], ["encrypted_password", "$2a$04$kL7R1kgJ8meuwhL/8LRAG.Qn.vd/ktaat8.x3LkVKhIvFBuD3p.k6"], ["created_at", "2021-08-15 06:37:10.672024"], ["updated_at", "2021-08-15 06:37:10.672024"], ["first_name", "Jane"], ["last_name", "Tester"], ["authentication_token", "QFLxrLHkaZGu2DcfpbR6"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: bc45a806-d212-42b5-8582-332f98547c6e) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442642e18 @uri=#<URI::GID gid://projects/User/2>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "KGxYcXC-jxHERuntijdN"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "tester@example.com"], ["encrypted_password", "$2a$04$NFfS2UUnG1firpa/8rbrm.9gsQl/gn4BdOPY2UIC44c6A.PKgLK3a"], ["created_at", "2021-08-15 06:37:10.699262"], ["updated_at", "2021-08-15 06:37:10.699262"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "KGxYcXC-jxHERuntijdN"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 3e7615c2-3036-449c-9da9-dea46034b0c5) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4441ff340 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc] UserMailer#welcome_email: processed outbound mail in 147.0ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612] UserMailer#welcome_email: processed outbound mail in 83.3ms
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc] Delivered mail 6118b616b146d_150cc3fea222afe44249d8@MacBook-Air-8.local.mail (39.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc] Date: Sun, 15 Aug 2021 15:37:10 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118b616b146d_150cc3fea222afe44249d8@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [db391bdf-5b86-4141-89f1-d0ebf9f0e5fc] Performed ActionMailer::DeliveryJob (Job ID: db391bdf-5b86-4141-89f1-d0ebf9f0e5fc) from Async(mailers) in 199.5ms
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612] Delivered mail 6118b616b1a30_150cc3fea1ca611202503@MacBook-Air-8.local.mail (34.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612] Date: Sun, 15 Aug 2021 15:37:10 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118b616b1a30_150cc3fea1ca611202503@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [1ff53025-7f49-45f1-9a99-98a7a0240612] Performed ActionMailer::DeliveryJob (Job ID: 1ff53025-7f49-45f1-9a99-98a7a0240612) from Async(mailers) in 122.62ms
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "jDUz_zfUtymRyTtfAXw9"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$vwoTZiH5Ax.j9CcSTJX0PuRHh.riu38zeBJla9EpTlGZHG6hrXMGa"], ["created_at", "2021-08-15 06:39:48.387421"], ["updated_at", "2021-08-15 06:39:48.387421"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "jDUz_zfUtymRyTtfAXw9"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 6b978532-df1f-463f-88a7-5a09779e3a16) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd439533a30 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.493836"], ["updated_at", "2021-08-15 06:39:48.493836"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16] Performing ActionMailer::DeliveryJob (Job ID: 6b978532-df1f-463f-88a7-5a09779e3a16) from Async(mailers) enqueued at 2021-08-15T06:39:48Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd43c04a7a0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "imqqVMuU6piNzrZJg9Ht"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$h24NxoxQj2XIThy2H4Vxx.agikF2/gOqCUmRGeKRvGOCHBEZ3q0fm"], ["created_at", "2021-08-15 06:39:48.521500"], ["updated_at", "2021-08-15 06:39:48.521500"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "imqqVMuU6piNzrZJg9Ht"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 2f7a1acd-7358-445e-88f0-6acf98775ec7) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442257b00 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.527638"], ["updated_at", "2021-08-15 06:39:48.527638"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "Pue45Q4E9RMzKq8Fazho"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$W93xDf/wKVEvj3lOaHZgIOk1uus/FPPP5fHfmCDUTDBC0c4H0.a62"], ["created_at", "2021-08-15 06:39:48.562244"], ["updated_at", "2021-08-15 06:39:48.562244"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "Pue45Q4E9RMzKq8Fazho"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 40415a92-8464-4322-b858-93758e961c9d) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4426ef0a0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.568159"], ["updated_at", "2021-08-15 06:39:48.568159"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (1.0ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.576257"], ["updated_at", "2021-08-15 06:39:48.576257"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.580820"], ["updated_at", "2021-08-15 06:39:48.580820"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.585976"], ["updated_at", "2021-08-15 06:39:48.585976"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (LOWER(message) LIKE '%first%')[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "871xZ9JPt4-epZCo6Zky"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$sPine1G/QJ1UFHcdAHzkiuUBnM.jpp9DdiY8J8BuiCN3sPmI.ZFp."], ["created_at", "2021-08-15 06:39:48.606067"], ["updated_at", "2021-08-15 06:39:48.606067"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "871xZ9JPt4-epZCo6Zky"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: f19556d9-9c68-4ca5-b9aa-f1b0efc19dca) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44425f1c8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.612134"], ["updated_at", "2021-08-15 06:39:48.612134"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.616085"], ["updated_at", "2021-08-15 06:39:48.616085"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.620726"], ["updated_at", "2021-08-15 06:39:48.620726"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:39:48.622317"], ["updated_at", "2021-08-15 06:39:48.622317"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7] Performing ActionMailer::DeliveryJob (Job ID: 2f7a1acd-7358-445e-88f0-6acf98775ec7) from Async(mailers) enqueued at 2021-08-15T06:39:48Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd444419c70 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d] Performing ActionMailer::DeliveryJob (Job ID: 40415a92-8464-4322-b858-93758e961c9d) from Async(mailers) enqueued at 2021-08-15T06:39:48Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44443c220 @uri=#<URI::GID gid://projects/User/1>>
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (LOWER(message) LIKE '%message%') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "fssQr7H2W3dtNyShaxTH"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$JN7TMxGzhfqyWBeUFUY6v.dZs27JYPu/sMDSf7SRx15nEfHfmTHzi"], ["created_at", "2021-08-15 06:39:48.642381"], ["updated_at", "2021-08-15 06:39:48.642381"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "fssQr7H2W3dtNyShaxTH"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: b9dca908-928c-4860-9a6c-581c751b683f) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44454a1d0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.648196"], ["updated_at", "2021-08-15 06:39:48.648196"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "TeLggebnGhCJuhtn3TZZ"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$Uf6Y4e6UWJK6GJanKYHl5upYJ2YMVpKQTqhNvz6KYpNO39dmHwqXi"], ["created_at", "2021-08-15 06:39:48.658421"], ["updated_at", "2021-08-15 06:39:48.658421"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "TeLggebnGhCJuhtn3TZZ"]]
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 24.4ms | Allocations: 5253)
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 18.1ms | Allocations: 3530)
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 25.8ms | Allocations: 5596)
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: be394ff1-c7cd-4070-89a4-bbc66a0b0d16) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4446e0b98 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:39:48.667969"], ["updated_at", "2021-08-15 06:39:48.667969"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "-ex-VVmdyogSRdUJzAry"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janetester@example.com"], ["encrypted_password", "$2a$04$marztvdcVC7nDgHEH8i/PeyvQkeHmBKEqNQDZEjS3.wClwv0KPOgG"], ["created_at", "2021-08-15 06:39:48.672242"], ["updated_at", "2021-08-15 06:39:48.672242"], ["first_name", "Jane"], ["last_name", "Tester"], ["authentication_token", "-ex-VVmdyogSRdUJzAry"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 565bdd2b-5fe2-49f4-be5b-112db7f0dbeb) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4447c1f08 @uri=#<URI::GID gid://projects/User/2>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7] UserMailer#welcome_email: processed outbound mail in 83.5ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16] UserMailer#welcome_email: processed outbound mail in 168.5ms
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d] UserMailer#welcome_email: processed outbound mail in 84.5ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "s1RdxCqbTi6xeo6CcQ7B"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "tester@example.com"], ["encrypted_password", "$2a$04$GQ2jMJwP1RMliyJljMPU/e3ckQKSYZmb60XzF.bw.a9nHRo.T2/U6"], ["created_at", "2021-08-15 06:39:48.722492"], ["updated_at", "2021-08-15 06:39:48.722492"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "s1RdxCqbTi6xeo6CcQ7B"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: ff9f160b-78bb-47d4-925b-36dc6dd3396d) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd439328fd8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7] Delivered mail 6118b6b4b3e39_150ec3fea21124e54249a7@MacBook-Air-8.local.mail (41.8ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16] Delivered mail 6118b6b4b43b2_150ec3fea1ca950c425045@MacBook-Air-8.local.mail (36.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16] Date: Sun, 15 Aug 2021 15:39:48 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118b6b4b43b2_150ec3fea1ca950c425045@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [6b978532-df1f-463f-88a7-5a09779e3a16] Performed ActionMailer::DeliveryJob (Job ID: 6b978532-df1f-463f-88a7-5a09779e3a16) from Async(mailers) in 244.85ms
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d] Delivered mail 6118b6b4b44c6_150ec3fea21372170251db@MacBook-Air-8.local.mail (36.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d] Date: Sun, 15 Aug 2021 15:39:48 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118b6b4b44c6_150ec3fea21372170251db@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [40415a92-8464-4322-b858-93758e961c9d] Performed ActionMailer::DeliveryJob (Job ID: 40415a92-8464-4322-b858-93758e961c9d) from Async(mailers) in 128.01ms
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7] Date: Sun, 15 Aug 2021 15:39:48 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118b6b4b3e39_150ec3fea21124e54249a7@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [2f7a1acd-7358-445e-88f0-6acf98775ec7] Performed ActionMailer::DeliveryJob (Job ID: 2f7a1acd-7358-445e-88f0-6acf98775ec7) from Async(mailers) in 130.77ms
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "942i6VCyHBBqxC7fuwnS"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$PkKBiICw6qXNdWtF44KEV.6ZrUqOXPrp873KuyiTEyfPtKsaqJdpK"], ["created_at", "2021-08-15 06:58:21.414216"], ["updated_at", "2021-08-15 06:58:21.414216"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "942i6VCyHBBqxC7fuwnS"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1e9edde7-1c19-4671-a329-63af63f94f32) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd444700420 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.541512"], ["updated_at", "2021-08-15 06:58:21.541512"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "hniLeR83bQy9EXPymxdG"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$sXu2w79RBbUTQfwM.WsJ9.5OnIGs83mVvGiJKoZhfhK983lhDOImW"], ["created_at", "2021-08-15 06:58:21.562226"], ["updated_at", "2021-08-15 06:58:21.562226"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "hniLeR83bQy9EXPymxdG"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4395c9a58 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.566819"], ["updated_at", "2021-08-15 06:58:21.566819"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32] Performing ActionMailer::DeliveryJob (Job ID: 1e9edde7-1c19-4671-a329-63af63f94f32) from Async(mailers) enqueued at 2021-08-15T06:58:21Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4396d45d8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a] Performing ActionMailer::DeliveryJob (Job ID: ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a) from Async(mailers) enqueued at 2021-08-15T06:58:21Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd440b21710 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "L4BvAuPmvvbWpPqkisjU"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$O5am50rnzo2yTmPOljZITehmZxd8lkrxxrpwzyk1crhYp8yWoTN1W"], ["created_at", "2021-08-15 06:58:21.612201"], ["updated_at", "2021-08-15 06:58:21.612201"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "L4BvAuPmvvbWpPqkisjU"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 40206eb0-e74a-4513-988e-b350a7d7f59a) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd440dd06c8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.617081"], ["updated_at", "2021-08-15 06:58:21.617081"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (1.0ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.625310"], ["updated_at", "2021-08-15 06:58:21.625310"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.629676"], ["updated_at", "2021-08-15 06:58:21.629676"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.3ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.632909"], ["updated_at", "2021-08-15 06:58:21.632909"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (LOWER(message) LIKE '%first%')[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "FjsHfYbeoUNkA11pahcF"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$8WBe3tXstlFi7TsprFx6NubEEIuS48xmCV8B2Iuz0kMRj/FC1Ill2"], ["created_at", "2021-08-15 06:58:21.648513"], ["updated_at", "2021-08-15 06:58:21.648513"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "FjsHfYbeoUNkA11pahcF"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: c77418fe-236e-4902-b4a3-f4e39bf1fc9c) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44237ecb8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.654211"], ["updated_at", "2021-08-15 06:58:21.654211"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.3ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.656566"], ["updated_at", "2021-08-15 06:58:21.656566"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.659647"], ["updated_at", "2021-08-15 06:58:21.659647"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 06:58:21.661668"], ["updated_at", "2021-08-15 06:58:21.661668"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (LOWER(message) LIKE '%message%') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "BvGUb4J3Y-jpAD4FP1YQ"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$kw9nHCF1vWduOhdwlX4LnO2nZyaT42ete3CznWRhA3Ijqw9p8BoeC"], ["created_at", "2021-08-15 06:58:21.676960"], ["updated_at", "2021-08-15 06:58:21.676960"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "BvGUb4J3Y-jpAD4FP1YQ"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1bcb592e-f9e1-441c-9a42-97a4906630ce) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442548738 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.686029"], ["updated_at", "2021-08-15 06:58:21.686029"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "WqRsbvQrHfYyQSMLdmgf"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$CjYSF4qiQMmmNecjZa/bgeT4EeNORDbjAEV2dSdWeKADTsohxwetO"], ["created_at", "2021-08-15 06:58:21.702729"], ["updated_at", "2021-08-15 06:58:21.702729"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "WqRsbvQrHfYyQSMLdmgf"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 4cd6983f-ed03-4998-9412-040e4f7ae096) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4426fc6b0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 06:58:21.710982"], ["updated_at", "2021-08-15 06:58:21.710982"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "3FaUEBuEHczSsLNj-dGL"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janetester@example.com"], ["encrypted_password", "$2a$04$uqbcrMfI8K3vQ5SZLdW4n.Kq21o0OONaZpNFdSNcnyleoqqWPMgou"], ["created_at", "2021-08-15 06:58:21.716501"], ["updated_at", "2021-08-15 06:58:21.716501"], ["first_name", "Jane"], ["last_name", "Tester"], ["authentication_token", "3FaUEBuEHczSsLNj-dGL"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: aaae0cfc-376c-4424-849c-28e0865ce34a) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4427e08d8 @uri=#<URI::GID gid://projects/User/2>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 35.0ms | Allocations: 6805)
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 27.0ms | Allocations: 4416)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "5rhs9LjkGDk4ViVDiHxE"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "tester@example.com"], ["encrypted_password", "$2a$04$vtHy9c8RnoT5rEt0qBxfDe2ZnSUnV7ZzIDQ2LhvlFlDOnaAop/7FO"], ["created_at", "2021-08-15 06:58:21.749358"], ["updated_at", "2021-08-15 06:58:21.749358"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "5rhs9LjkGDk4ViVDiHxE"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 54fd4743-480d-421c-b89e-6fcd426ef056) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4443c1ea8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32] UserMailer#welcome_email: processed outbound mail in 165.2ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a] UserMailer#welcome_email: processed outbound mail in 157.4ms
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32] Delivered mail 6118bb0dbdb9d_152113fea223809f42499f@MacBook-Air-8.local.mail (28.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a] Delivered mail 6118bb0dbe164_152113fea1cae5ccc25035@MacBook-Air-8.local.mail (26.7ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a] Date: Sun, 15 Aug 2021 15:58:21 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118bb0dbe164_152113fea1cae5ccc25035@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a] Performed ActionMailer::DeliveryJob (Job ID: ef84da68-ad28-4cdc-9b54-0c5ffa2a1f2a) from Async(mailers) in 188.44ms
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32] Date: Sun, 15 Aug 2021 15:58:21 +0900
+From: support@example.com
+To: joetester@example.com
+Message-ID: <6118bb0dbdb9d_152113fea223809f42499f@MacBook-Air-8.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Projects</h1>
+
+    <p>
+      Hello Joe,
+    </p>
+
+    <p>
+      Thanks for checking out Projects. Use the email address
+      joetester@example.com to sign in or reset your password in the future.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::DeliveryJob] [1e9edde7-1c19-4671-a329-63af63f94f32] Performed ActionMailer::DeliveryJob (Job ID: 1e9edde7-1c19-4671-a329-63af63f94f32) from Async(mailers) in 217.25ms
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "xdsogw2eQVVF2WyDzoCq"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$4/sKIg6StFam9svMVF2VR.yHJ9HolMv.NVOHX2WxqU9ceMG45VkW6"], ["created_at", "2021-08-15 07:00:38.313420"], ["updated_at", "2021-08-15 07:00:38.313420"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "xdsogw2eQVVF2WyDzoCq"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 089545c4-ef3f-48f8-bc35-a320bfb69a78) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4442bc558 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.421099"], ["updated_at", "2021-08-15 07:00:38.421099"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "suL-4pygShE-xKTYQfnB"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$am/Ne1J0Z9MB6tvQfngmq.TkTjlWHUVXDHhoG3xozWTZYSBPyusPa"], ["created_at", "2021-08-15 07:00:38.463691"], ["updated_at", "2021-08-15 07:00:38.463691"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "suL-4pygShE-xKTYQfnB"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: e007242a-8f50-4669-9389-c8146a0f9fbd) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4392eba48 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.468238"], ["updated_at", "2021-08-15 07:00:38.468238"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78] Performing ActionMailer::DeliveryJob (Job ID: 089545c4-ef3f-48f8-bc35-a320bfb69a78) from Async(mailers) enqueued at 2021-08-15T07:00:38Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd439383eb0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "1yx73xE2BAGeFnE7cC5J"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$wjcjyO78kKQ0TQmAv3IYmOMskyEnDnzW3zEl5AADSjGr5hVKOmWXG"], ["created_at", "2021-08-15 07:00:38.508952"], ["updated_at", "2021-08-15 07:00:38.508952"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "1yx73xE2BAGeFnE7cC5J"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1f7c5276-de4d-4af8-91a4-4ecca66746cf) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4396f5378 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.512786"], ["updated_at", "2021-08-15 07:00:38.512786"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd] Performing ActionMailer::DeliveryJob (Job ID: e007242a-8f50-4669-9389-c8146a0f9fbd) from Async(mailers) enqueued at 2021-08-15T07:00:38Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd43976ca90 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (1.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.525013"], ["updated_at", "2021-08-15 07:00:38.525013"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.533588"], ["updated_at", "2021-08-15 07:00:38.533588"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.536799"], ["updated_at", "2021-08-15 07:00:38.536799"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (LOWER(message) LIKE '%first%')[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "GuY5zSrsU2myVRMUTaLg"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$FY3g021hRly5jhMUQeaaLewkzI7lv5OofSqTUABXXAavxc6WTVtmm"], ["created_at", "2021-08-15 07:00:38.548168"], ["updated_at", "2021-08-15 07:00:38.548168"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "GuY5zSrsU2myVRMUTaLg"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 0f4eff9d-3abe-44e7-bd7b-1c7070937a98) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44211cd30 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.553106"], ["updated_at", "2021-08-15 07:00:38.553106"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.4ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.555525"], ["updated_at", "2021-08-15 07:00:38.555525"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.558138"], ["updated_at", "2021-08-15 07:00:38.558138"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 07:00:38.559722"], ["updated_at", "2021-08-15 07:00:38.559722"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (LOWER(message) LIKE '%message%') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "znjsSELtND_2zUpFfteL"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$Ek9wEZY9TVl4P09aypl6iu/GdG0dLZoXPih9Bjathi7p9BSsI6/ua"], ["created_at", "2021-08-15 07:00:38.580375"], ["updated_at", "2021-08-15 07:00:38.580375"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "znjsSELtND_2zUpFfteL"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 172bd9e3-84f8-420f-84e9-c25d32d05bf8) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4423b8c60 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 17.3ms | Allocations: 2616)
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.589069"], ["updated_at", "2021-08-15 07:00:38.589069"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "MxBMuS9PziL8-hzZehfT"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$J47qE/ZRfF/VrmLZLxGzA.xhcIBkL5mU8AyubgVLyak1BjPel7Az."], ["created_at", "2021-08-15 07:00:38.597972"], ["updated_at", "2021-08-15 07:00:38.597972"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "MxBMuS9PziL8-hzZehfT"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 6b81e44b-8f73-4bd7-95f1-6b23708415dc) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442351740 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 07:00:38.603112"], ["updated_at", "2021-08-15 07:00:38.603112"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "xhL5ezZp4go4Czwkkpq5"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janetester@example.com"], ["encrypted_password", "$2a$04$t.fSRpIazYIt4IRj34aMuOIyHYWXsgaPYh8pBzy4JkNC6paHx45Oi"], ["created_at", "2021-08-15 07:00:38.609091"], ["updated_at", "2021-08-15 07:00:38.609091"], ["first_name", "Jane"], ["last_name", "Tester"], ["authentication_token", "xhL5ezZp4go4Czwkkpq5"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 75008975-fccb-4220-bacd-16bdadb37df4) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4421e5af0 @uri=#<URI::GID gid://projects/User/2>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 33.4ms | Allocations: 6883)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd] UserMailer#welcome_email: processed outbound mail in 111.9ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78] UserMailer#welcome_email: processed outbound mail in 135.9ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "MbbRgRob5-bisVuQpAUP"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "tester@example.com"], ["encrypted_password", "$2a$04$zYn4X54N97kPudbmgOQZfeZLMkGB50ONsRjT8oFLhXJC16vwixXeS"], ["created_at", "2021-08-15 07:00:38.652759"], ["updated_at", "2021-08-15 07:00:38.652759"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "MbbRgRob5-bisVuQpAUP"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: af5ddc15-2d91-4907-81ec-95f14a24d3f6) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4427afe90 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd] Skipped delivery of mail  as `perform_deliveries` is false
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd] 
+[ActiveJob] [ActionMailer::DeliveryJob] [e007242a-8f50-4669-9389-c8146a0f9fbd] Performed ActionMailer::DeliveryJob (Job ID: e007242a-8f50-4669-9389-c8146a0f9fbd) from Async(mailers) in 150.6ms
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78] Skipped delivery of mail  as `perform_deliveries` is false
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78] 
+[ActiveJob] [ActionMailer::DeliveryJob] [089545c4-ef3f-48f8-bc35-a320bfb69a78] Performed ActionMailer::DeliveryJob (Job ID: 089545c4-ef3f-48f8-bc35-a320bfb69a78) from Async(mailers) in 195.79ms
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "M_Xxy6qWPK9YuPV8nrTy"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$soWve1zSlcA/qc0I7shK5e48E1op.Nfu08yeWiNQJEqc4As2nKeOy"], ["created_at", "2021-08-15 08:10:40.892286"], ["updated_at", "2021-08-15 08:10:40.892286"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "M_Xxy6qWPK9YuPV8nrTy"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1d81d5cf-6dae-4784-8246-9c2ba3c2b73b) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd43965c3d0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:40.997509"], ["updated_at", "2021-08-15 08:10:40.997509"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "McYLcj313kLko5yNyLji"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$OHa.6qCuZrSsyKyqz6Ooi.ebyONiy3rIp6.fjdGxhUf.B9ct75nLK"], ["created_at", "2021-08-15 08:10:41.020869"], ["updated_at", "2021-08-15 08:10:41.020869"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "McYLcj313kLko5yNyLji"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 81768896-2eff-4b15-8a19-1ff433da8fa9) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd442352398 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:41.030170"], ["updated_at", "2021-08-15 08:10:41.030170"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b] Performing ActionMailer::DeliveryJob (Job ID: 1d81d5cf-6dae-4784-8246-9c2ba3c2b73b) from Async(mailers) enqueued at 2021-08-15T08:10:40Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4421ac4d0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9] Performing ActionMailer::DeliveryJob (Job ID: 81768896-2eff-4b15-8a19-1ff433da8fa9) from Async(mailers) enqueued at 2021-08-15T08:10:41Z with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4426edcf0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "T2LVGsW2NgyK9yqcfANp"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$YyM8TDRe3/cP9jr1FczojOxeaYQblpdzT.zWW9.DfHTDBA18.z1ue"], ["created_at", "2021-08-15 08:10:41.069312"], ["updated_at", "2021-08-15 08:10:41.069312"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "T2LVGsW2NgyK9yqcfANp"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 5d84ed8d-1c5d-41cb-a552-805ecd190fbb) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4441615c8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:41.075117"], ["updated_at", "2021-08-15 08:10:41.075117"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (1.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.082837"], ["updated_at", "2021-08-15 08:10:41.082837"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.086601"], ["updated_at", "2021-08-15 08:10:41.086601"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.2ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.088423"], ["updated_at", "2021-08-15 08:10:41.088423"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (LOWER(message) LIKE '%first%')[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "jAjNMnb9z6xo6cm1qKgA"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$tTlWs2npVlJcfG6vud3n5egMGwkxfOH/Bbfkp6mi99J8E8wQBkQ0i"], ["created_at", "2021-08-15 08:10:41.098620"], ["updated_at", "2021-08-15 08:10:41.098620"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "jAjNMnb9z6xo6cm1qKgA"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: b610b251-5616-45b2-80c4-dcd13dd01c11) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44440e2d0 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:41.104267"], ["updated_at", "2021-08-15 08:10:41.104267"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.3ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the first note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.107339"], ["updated_at", "2021-08-15 08:10:41.107339"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "This is the second note."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.111715"], ["updated_at", "2021-08-15 08:10:41.111715"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mNote Create (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("message", "project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["message", "First, preheat the oven."], ["project_id", 1], ["user_id", 1], ["created_at", "2021-08-15 08:10:41.113418"], ["updated_at", "2021-08-15 08:10:41.113418"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (LOWER(message) LIKE '%message%') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 10.0ms | Allocations: 1267)
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 9.8ms | Allocations: 1228)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "r8BWD89sVu3n5FWSycSK"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$UnIDsMU05wbSBZTi.Rn3HOWkx6VSH2OFFbmcdoFAjhypci2fN/i6S"], ["created_at", "2021-08-15 08:10:41.143481"], ["updated_at", "2021-08-15 08:10:41.143481"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "r8BWD89sVu3n5FWSycSK"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 6a076ee1-9a98-4f85-88ad-b375895d34a0) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd4446bc360 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:41.147354"], ["updated_at", "2021-08-15 08:10:41.147354"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "QZNT_SqW1r1kvR9yWeEJ"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joetester@example.com"], ["encrypted_password", "$2a$04$ezNnHuSPhmPKPs5EKpYEpuM1RwDx8sdEbKS/LkZ9gVg5ShhpEkaGC"], ["created_at", "2021-08-15 08:10:41.156931"], ["updated_at", "2021-08-15 08:10:41.156931"], ["first_name", "Joe"], ["last_name", "Tester"], ["authentication_token", "QZNT_SqW1r1kvR9yWeEJ"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 5ac3e700-d5a7-4d37-9d68-d99a37c167a2) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd44483cde8 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Test Project"], ["created_at", "2021-08-15 08:10:41.179457"], ["updated_at", "2021-08-15 08:10:41.179457"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janetester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "dYCmfY8yXsKsxkFdpqKy"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janetester@example.com"], ["encrypted_password", "$2a$04$nlZjsoYgh3Mc3EDf8eL6De8R6.ZDPOJbVMT.yC0NFj/8m03Ct198y"], ["created_at", "2021-08-15 08:10:41.186152"], ["updated_at", "2021-08-15 08:10:41.186152"], ["first_name", "Jane"], ["last_name", "Tester"], ["authentication_token", "dYCmfY8yXsKsxkFdpqKy"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: db6636e5-2fa9-4220-8e97-d6375b9183b4) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd438d7c850 @uri=#<URI::GID gid://projects/User/2>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProject Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "Test Project"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9] UserMailer#welcome_email: processed outbound mail in 137.4ms
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b] UserMailer#welcome_email: processed outbound mail in 141.6ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "ScfWxWgfibiYtsfmAoyA"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name", "authentication_token") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "tester@example.com"], ["encrypted_password", "$2a$04$789z86z1UAqGBgkqJTljtOdc5zZNo5RdEBtWnl93taAZSeXjtO4.C"], ["created_at", "2021-08-15 08:10:41.231180"], ["updated_at", "2021-08-15 08:10:41.231180"], ["first_name", "Aaron"], ["last_name", "Sumner"], ["authentication_token", "ScfWxWgfibiYtsfmAoyA"]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 30898efa-e0c8-475d-8afd-919c6616be7f) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", #<GlobalID:0x00007fd439450640 @uri=#<URI::GID gid://projects/User/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tester@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b] Skipped delivery of mail  as `perform_deliveries` is false
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b] 
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9] Skipped delivery of mail  as `perform_deliveries` is false
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9] 
+[ActiveJob] [ActionMailer::DeliveryJob] [81768896-2eff-4b15-8a19-1ff433da8fa9] Performed ActionMailer::DeliveryJob (Job ID: 81768896-2eff-4b15-8a19-1ff433da8fa9) from Async(mailers) in 191.71ms
+[ActiveJob] [ActionMailer::DeliveryJob] [1d81d5cf-6dae-4784-8246-9c2ba3c2b73b] Performed ActionMailer::DeliveryJob (Job ID: 1d81d5cf-6dae-4784-8246-9c2ba3c2b73b) from Async(mailers) in 214.17ms
